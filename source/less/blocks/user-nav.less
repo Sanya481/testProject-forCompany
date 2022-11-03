@@ -1,0 +1,140 @@
+.user-nav__list {
+  .list-reset();
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 21px;
+  margin-right: 6px;
+
+  @media (max-width: @vp-767) {
+    gap: 16px;
+    margin: 0 10px 0 0;
+  }
+}
+
+.user-nav__item--profile {
+  @media (max-width: @vp-767) {
+    display: none;
+  }
+}
+
+.user-nav__link {
+  display: inline-block;
+  vertical-align: middle;
+  height: 27px;
+
+  stroke: @color-black;
+  fill: transparent;
+
+  transition: fill 0.2s linear, stroke 0.2s ease;
+
+  @media (max-width: @vp-767) {
+    height: 22px;
+  }
+
+  &--profile {
+    width: 24px;
+
+    // Эффекты при наведении в десктопной версии
+    @media (min-width: 1110px) {
+      &:hover,
+      &:focus {
+        stroke: @color-black;
+        fill: @color-dark-orange;
+      }
+
+      &:active {
+        fill: @color-red;
+      }
+    }
+
+    &:active {
+      fill: @color-red;
+    }
+  }
+
+  &--favourites {
+    width: 30px;
+
+    @media (max-width: @vp-767) {
+      width: 24px;
+    }
+
+    // Эффекты при наведении в десктопной версии
+    @media (min-width: 1110px) {
+      &:hover,
+      &:focus {
+        stroke: @color-red;
+        fill: @color-red;
+      }
+
+      &:active {
+        fill: transparent;
+      }
+    }
+
+    &:active {
+      fill: @color-red;
+      transition-duration: 0s;
+    }
+  }
+
+  &--cart {
+    width: 25px;
+
+    @media (max-width: @vp-767) {
+      width: 20px;
+    }
+
+    // Эффекты при наведении в десктопной версии
+    @media (min-width: 1110px) {
+      &:hover,
+      &:focus {
+        fill: @color-sky-blue;
+      }
+
+      &:active {
+        fill: @color-bright-turquoise;
+      }
+    }
+
+    &:active {
+      fill: @color-bright-turquoise;
+      transition-duration: 0s;
+    }
+  }
+}
+
+.user-nav__link svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Корзина */
+
+.user-nav__item--cart {
+  position: relative;
+}
+
+.user-nav__item--cart span {
+  position: absolute;
+  top: -3px;
+  right: -7px;
+
+  font-size: 12px;
+  line-height: 14px;
+  width: 17px;
+  height: 16px;
+  text-align: center;
+
+  background-color: @color-black;
+  color: @color-white;
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  @media (max-width: @vp-767) {
+    right: -11px;
+  }
+}
+

@@ -1,0 +1,66 @@
+.header {
+  padding-top: 30px;
+  margin-bottom: 50px;
+
+  @media (max-width: @vp-767) {
+    position: relative;
+
+    padding-top: 16px;
+    margin-bottom: 37px;
+  }
+}
+
+.header.is-open.header::before {
+  @media (max-width: @vp-767) {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: @green-to-purple-2;
+    z-index: @header-before;
+  }
+}
+
+/* Грид раскладка блоков */
+.header__container {
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr;
+  row-gap: 64px;
+  grid-template-rows: 1fr 1fr;
+
+  @media (max-width: @vp-767) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.header__user-nav {
+  justify-self: end;
+}
+
+.header__logo {
+  grid-row-start: 1;
+  grid-row-end: -1;
+
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+  align-self: end;
+}
+
+.header__site-nav {
+  grid-column-start: 1;
+  grid-column-end: -1;
+
+  grid-row-start: 2;
+  grid-row-end: 3;
+
+  align-self: end;
+
+  &--right {
+    justify-self: end;
+  }
+}

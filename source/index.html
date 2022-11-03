@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="files/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>Тестовое задание на HTML-верстальщика в компанию Пять углов</title>
+</head>
+
+<body class="page-body">
+
+  <header class="header" data-header>
+    <div class="header__container container">
+
+      <div class="header__mobile-nav mobile-nav" data-mobile-nav>
+        <!-- Бургер в мобилке -->
+        <button class="mobile-nav__burger burger" type="button" data-burger aria-label="Открыть/закрыть меню">
+          <span class="burger__menu"></span>
+        </button>
+
+        <!-- Поиск в мобилке -->
+        <button class="mobile-nav__search-site" type="button" data-search-btn-open>
+          <svg width="24" height="24">
+            <use xlink:href="img/sprite/sprite.svg#search-icon"></use>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Форма поиска - комп/мобилка -->
+      <form class="header__search search-form" action="#" method="post" data-search-form>
+        <!-- Кнопка закрытия поиска в мобилке -->
+        <button class="search-form__close" type="button" aria-label="Закрыть окно поиска"
+          data-search-btn-close></button>
+
+        <p class="search-form__group">
+          <label class="search-form__label">
+            <input type="search" name="site-search" placeholder="Поиск">
+          </label>
+        </p>
+
+        <button class="search-form__find" type="submit">Найти</button>
+      </form>
+
+      <a href="#" class="header__logo logo">
+        <span class="visually-hidden">Логотип сайта</span>
+        <svg width="160" height="50">
+          <use xlink:href="img/sprite/sprite.svg#logo">
+        </svg>
+      </a>
+
+      <!-- Иконки навигации пользователя - профиль/избранное/корзина -->
+      <nav class="header__user-nav user-nav">
+        <ul class="user-nav__list">
+          <li class="user-nav__item user-nav__item--profile">
+            <a href="#" class="user-nav__link user-nav__link--profile" aria-label="Профиль пользователя">
+              <svg width="24" height="27">
+                <use xlink:href="img/sprite/sprite.svg#profile"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="user-nav__item">
+            <a href="#" class="user-nav__link user-nav__link--favourites" aria-label="Избранные товары">
+              <svg width="30" height="27">
+                <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="user-nav__item user-nav__item--cart">
+            <a href="#" class="user-nav__link user-nav__link--cart" aria-label="Корзина">
+              <svg width="25" height="27">
+                <use xlink:href="img/sprite/sprite.svg#cart"></use>
+              </svg>
+            </a>
+            <span data-quantity-goods></span>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Навигация по сайту -->
+      <nav class="header__site-nav site-nav" data-site-nav>
+        <ul class="site-nav__list" data-site-nav-left>
+          <li class="site-nav__item site-nav__item--profile">
+            <a href="#">Профиль</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="#">Страница&nbsp;1</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="#">Страница&nbsp;2</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="#">Страница&nbsp;3</a>
+          </li>
+        </ul>
+
+        <ul class="site-nav__list site-nav__list--right" data-site-nav-right>
+          <li class="site-nav__item">
+            <a href="#">Страница&nbsp;4</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="#">Страница&nbsp;5</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="#">Страница&nbsp;6</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+    <!-- Хлебные крошки -->
+    <section class="breadcrumbs">
+      <div class="breadcrumbs__container container">
+
+        <ul class="breadcrumbs__list">
+          <li class="breadcrumbs__item">
+            <a href="#">Главная</a>
+          </li>
+          <li class="breadcrumbs__item is-current">
+            <a href="#">Корзина</a>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+    <section class="basket">
+
+      <div class="basket__container container">
+
+        <!-- Главная форма на странице -->
+        <form class="basket__form basket-form" action="#" method="post" enctype="multipart/form-data" data-form-basket>
+          <h1>Корзина</h1>
+
+          <!-- Авторизация -->
+          <div class="basket__authorization authorization-link">
+            <span>Есть аккаунт?</span>
+            <a href="#">Войти</a>
+          </div>
+
+          <!-- Форма ввода для адреса -->
+          <p class="basket-form__group basket-form__group--address">
+            <input class="basket-form__input" id="field-for-address" type="text" name="user-address" placeholder=" "
+              required>
+            <label class="basket-form__label" for="field-for-address">Адрес</label>
+          </p>
+
+          <!-- Карта реализованная с помощью Leaflet -->
+          <div class="map" width="555" height="700" data-map tabindex="-1"></div>
+
+          <!-- Форма ввода для Имени/Телефона -->
+          <div class="basket-form__block">
+            <p class="basket-form__group">
+              <input class="basket-form__input" id="field-for-name" type="text" name="user-name" placeholder=" "
+                required>
+              <label class="basket-form__label" for="field-for-name">Ваше Имя</label>
+            </p>
+
+            <p class="basket-form__group">
+              <input class="basket-form__input" id="field-for-phone" type="tel" name="user-phone" maxlength="18"
+                data-phone-pattern placeholder=" " required>
+              <label class="basket-form__label" for="field-for-phone">Ваш Телефон</label>
+            </p>
+          </div>
+
+          <!-- Форма ввода для почты -->
+          <p class="basket-form__group">
+            <input class="basket-form__input" id="field-for-mail" type="email" name="user-mail" placeholder=" "
+              required>
+            <label class="basket-form__label" for="field-for-mail">Ваш Email</label>
+          </p>
+
+          <!-- Выпадашка -->
+          <div class="basket-form__group">
+            <div class="basket-form__select form-select" data-form-select>
+
+              <p class="form-select__group">
+                <input class="visually-hidden" type="text" name="package-type" value="" data-select-input
+                  required></input>
+                <label data-select-package-btn>Тип упаковки</label>
+              </p>
+
+              <ul class="form-select__list" inert data-select-list>
+                <li class="form-select__item">
+                  <button type="button" data-item-value="Без упаковки" disabled>Без упаковки</button>
+                </li>
+                <li class="form-select__item">
+                  <button type="button" data-item-value="Стандартная" disabled>Стандартная</button>
+                </li>
+                <li class="form-select__item">
+                  <button type="button" data-item-value="Подарочная" disabled>Подарочная</button>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+
+          <!-- Комменты -->
+          <p class="basket-form__group basket-form__group--textarea">
+            <textarea class="basket-form__input" name="user-comments" id="field-for-comment" placeholder=" "></textarea>
+            <label class="basket-form__label" for="field-for-comment">Введите комментарий</label>
+          </p>
+
+          <!-- Выбранные пользователем товары -->
+          <div class="selected-products">
+            <h2>Выбранные товары:</h2>
+
+            <ul class="selected-products__list" data-product-list>
+              <li class="selected-products__item product" data-product>
+
+                <div class="product__description">
+                  <h3>Товар&nbsp;1</h3>
+                  <p>Описание товара, которое может быть длинным</p>
+
+                  <div class="product__quantity quantity-select" data-select-quantity>
+                    <button class="quantity-select__minus" type="button" data-btn-minus></button>
+                    <input type="number" min="1" max="5" value="1" name="product-quantity" data-product-quantity>
+                    <button class="quantity-select__plus" type="button" data-btn-plus></button>
+
+                    <!-- Смс о превышении кол-ва вставится сюда -->
+                  </div>
+                </div>
+
+                <div class="product__image">
+                  <picture>
+                    <!-- Размер фотографии 1x - 150 * 150, 2x - 300 * 300 -->
+                    <!-- webp 1x, 2x -->
+                    <source type="img/webp" srcset="img/products/product.webp, img/products/product@2x.webp 2x">
+                    <!-- jpg 1x, 2x -->
+                    <img src="img/products/product.jpg" srcset="img/products/product@2x.jpg 2x" width="150" height="150"
+                      alt="Товар, который вам точно понравится">
+                  </picture>
+                </div>
+
+                <div class="product__price">
+                  <p data-product-price>1090<span>руб.</span></p>
+
+                  <button type="button" data-delete-product>Удалить</button>
+                </div>
+
+              </li>
+              <li class="selected-products__item product" data-product>
+
+                <div class="product__description">
+                  <h3>Товар&nbsp;2</h3>
+                  <p>Описание товара, которое может быть очень-очень длинным</p>
+
+                  <div class="product__quantity quantity-select" data-select-quantity>
+                    <button class="quantity-select__minus" type="button" data-btn-minus></button>
+                    <input type="number" min="1" max="8" value="1" name="product-quantity" data-product-quantity>
+                    <button class="quantity-select__plus" type="button" data-btn-plus></button>
+
+                    <!-- Смс о превышении кол-ва вставится сюда -->
+                  </div>
+                </div>
+
+                <div class="product__image">
+                  <picture>
+                    <!-- Размер фотографии 1x - 150 * 150, 2x - 300 * 300 -->
+                    <!-- webp 1x, 2x -->
+                    <source type="img/webp" srcset="img/products/product.webp, img/products/product@2x.webp 2x">
+                    <!-- jpg 1x, 2x -->
+                    <img src="img/products/product.jpg" srcset="img/products/product@2x.jpg 2x" width="150" height="150"
+                      alt="Товар, который вам точно понравится">
+                  </picture>
+                </div>
+
+                <div class="product__price">
+                  <p data-product-price>700<span>руб.</span></p>
+
+                  <button type="button" data-delete-product>Удалить</button>
+                </div>
+
+              </li>
+              <li class="selected-products__item product" data-product>
+
+                <div class="product__description">
+                  <h3>Товар&nbsp;3</h3>
+                  <p>Короткое описание товара</p>
+
+                  <div class="product__quantity quantity-select" data-select-quantity>
+                    <button class="quantity-select__minus" type="button" data-btn-minus></button>
+                    <input type="number" min="1" max="10" value="2" name="product-quantity" data-product-quantity>
+                    <button class="quantity-select__plus" type="button" data-btn-plus></button>
+
+                    <!-- Смс о превышении кол-ва вставится сюда -->
+                  </div>
+                </div>
+
+                <div class="product__image">
+                  <picture>
+                    <!-- Размер фотографии 1x - 150 * 150, 2x - 300 * 300 -->
+                    <!-- webp 1x, 2x -->
+                    <source type="img/webp" srcset="img/products/product.webp, img/products/product@2x.webp 2x">
+                    <!-- jpg 1x, 2x -->
+                    <img src="img/products/product.jpg" srcset="img/products/product@2x.jpg 2x" width="150" height="150"
+                      alt="Товар, который вам точно понравится">
+                  </picture>
+                </div>
+
+                <div class="product__price">
+                  <div class="product__price-wrapper">
+                    <p data-price>2000<span>руб.</span></p>
+                  </div>
+
+                  <button type="button" data-delete-product>Удалить</button>
+                </div>
+
+              </li>
+            </ul>
+
+          </div>
+
+          <!-- Итоговая цена -->
+          <div class="basket-form__sum-price sum-price">
+            <p>Итог:</p>
+            <span data-sum-price>3790<span>pуб.</span></span>
+          </div>
+
+          <button class="basket-form__btn-buy" type="submit" data-btn-buy>Купить</button>
+
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Смс о превышении доступного кол-ва товара -->
+  <template id="error-quantity-message">
+    <div class="quantity-select__error" data-error-quantity-message>
+      <p>Такого количества нет у&nbsp;данного продавца</p>
+    </div>
+  </template>
+
+  <script src="js/script.js" type="module"></script>
+  <script src="files/leaflet/leaflet.js"></script>
+
+</body>
+
+</html>

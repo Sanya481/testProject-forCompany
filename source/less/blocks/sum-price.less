@@ -1,0 +1,63 @@
+.sum-price {
+  position: absolute;
+  top: 564px;
+  z-index: @sum-price;
+
+  width: 100%;
+  height: 136px;
+
+  background-color: @color-black;
+  opacity: 0.8;
+
+  grid-column: 2/3;
+
+  font-family: @font-family-base;
+  color: @color-white;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 30px;
+
+  // Добавил свой медиа-запрос для адаптивности
+  @media (max-width: 950px) {
+    font-size: 20px;
+    line-height: 22px;
+    padding: 0 5px;
+  }
+
+  @media (max-width: @vp-767) {
+    position: static;
+    height: auto;
+
+    font-size: 26px;
+    line-height: 30px;
+    padding: 0;
+    margin-bottom: 0;
+    opacity: 1;
+
+    background-color: transparent;
+    color: @color-black;
+  }
+}
+
+.sum-price p {
+  margin: 0;
+}
+
+.sum-price span:last-child {
+  margin-left: 10px;
+
+  @media (max-width: @vp-767) {
+    margin-left: 7px;
+  }
+
+  // Добавил свой медиа-запрос для адаптивности
+  @media (max-width: 950px) {
+    margin-left: 2px;
+  }
+}

@@ -1,0 +1,174 @@
+.quantity-select {
+  display: flex;
+
+  width: 114px;
+  height: 40px;
+  border: 1px solid @color-black;
+
+  // Для смс об ошибке
+  position: relative;
+
+  @media (max-width: @vp-767) {
+    width: 80px;
+    height: 34px;
+  }
+}
+
+// Рисуем плюс/минус с помощью css
+.quantity-select button {
+  width: 40px;
+  height: 100%;
+
+  position: relative;
+
+  @media (max-width: @vp-767) {
+    width: 25px;
+    padding: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    background-color: @color-black;
+
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  // Эффекты при наведении в десктопной версии
+  @media (min-width: 1200px) {
+    &:hover,
+    &:focus {
+      background-color: @color-crusta;
+    }
+
+    &:active {
+      background-color: darken(@color-crusta, 20%);
+    }
+  }
+
+  &:active {
+    background-color: darken(@color-crusta, 20%);
+  }
+}
+
+// Не уверен, как лучше обращаться - с помощью класса или :last-child
+.quantity-select__plus::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 2px;
+  background-color: @color-black;
+
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.quantity-select button:disabled {
+  cursor: default;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+  }
+
+  &::after,
+  &::before {
+    background-color: @color-grey;
+  }
+}
+
+// Свойства для удаления стрелочек у input
+// Код взят с stackoverflow.com
+// Почему то просто, без префиксов свойство appearance: none; не работает
+.quantity-select input[type="number"]::-webkit-outer-spin-button,
+.quantity-select input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.quantity-select input[type="number"],
+.quantity-select input[type="number"]:hover,
+.quantity-select input[type="number"]:focus {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+.quantity-select input {
+  font-family: @font-family-base;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+
+  width: 32px;
+  padding: 2px;
+
+  border: none;
+  text-align: center;
+
+  @media (max-width: @vp-767) {
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
+// Сообщение об ошибке
+.quantity-select__error {
+  display: block;
+
+  font-size: 14px;
+  width: 196px;
+  height: auto;
+  padding: 9px;
+  margin-bottom: 10px;
+
+  position: absolute;
+  bottom: 100%;
+  left: 30px;
+
+  background-color: @color-red;
+  border-radius: 8px;
+  z-index: 5;
+
+  @media (max-width: @vp-767) {
+    left: 12px;
+  }
+
+  &::after {
+    content: "";
+    height: auto;
+    width: auto;
+
+    position: absolute;
+    left: 20px;
+    top: 100%;
+
+    border-color: @color-red transparent transparent;
+    border-style: solid;
+    border-width: 5px 7px 0;
+  }
+}
+
+.quantity-select__error p {
+  color: @color-white;
+  margin: 0;
+
+  @media (max-width: @vp-767) {
+    display: block;
+  }
+}
+
+// Выводим смс об ошибке при добавлении класса is-error
+.quantity-select.is-error button::after {
+  background-color: @color-red;
+}
+
+.quantity-select.is-error .quantity-select__plus::before {
+  background-color: @color-red;
+}
+
+.quantity-select.is-error input {
+  color: @color-red;
+}

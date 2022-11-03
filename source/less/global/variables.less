@@ -1,0 +1,63 @@
+// Viewports
+// ---------------------------------
+
+@vp-1200: 1200px;
+@vp-767: 767px;
+
+@mobile-width: 320px;
+@tablet-width: 768px;
+@desktop-width: 1110px;
+
+@retina-dpi: 144dpi;
+
+@mobile: ~"(min-width: @{mobile-width})";
+@tablet: ~"(min-width: @{tablet-width})";
+@desktop: ~"(min-width: @{desktop-width})";
+
+@retina: ~"(min-resolution: @{retina-dpi})";
+
+@font-family-base: "Helvetica", "Arial", sans-serif;
+@font-size-base: 16px;
+@line-height-base: 20px;
+@font-weight-base: 400;
+
+// Для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
+
+@color-black:                #000000;
+@color-white:                #ffffff;
+@color-grey:                 #9f9f9f;
+@color-grey-2:               #dedede;
+@color-crusta:               #f68050;
+@color-red:                  #fd0202;
+
+@color-dark-orange:          #ff8f00;
+@color-sky-blue:             #7ed7f2;
+@color-bright-turquoise:     #00ffcf;
+@color-apricot:              #ffceb6;
+@color-yellow:               #dddb6a;
+@color-green:                #009956;
+@color-amethyst:             #8c59d5;
+@pale-cornflower-blue:       #aedaf7;
+
+@body-shadow:                rgba(3, 16, 27, 0.7);
+
+// Linear-gradient
+
+@search-mobile-bcg:          linear-gradient(261deg, rgba(255, 255, 255, 1) 0%, rgba(77, 205, 242, 1) 0%, rgba(59, 66, 102, 1) 54%);
+@green-to-purple:            linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(30,168,155,1) 0%, rgba(86,57,173,1) 65%);
+@green-to-purple-2:          linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(30,168,155,1) 0%, rgba(86,57,173,1) 65%);
+@black-to-darkOrange:        linear-gradient(90deg, rgba(12, 12, 12, 1) 28%, rgba(246, 128, 80, 1) 70%);
+@black-to-darkOrange-2:      linear-gradient(90deg, rgba(12, 12, 12, 1) 0%, rgba(246, 128, 80, 1) 100%);
+@orange-to-black:            linear-gradient(90deg, rgba(246, 128, 80, 1) 0%, rgba(12, 12, 12, 1) 100%);
+
+@font-color-base: @color-black;
+@bg-color-body: @color-white;
+
+// z-index
+
+@map:                        1;
+@sum-price:                  2;
+@page-body-shadow:           4;
+@site-nav-mobile:            5;
+@burger:                     9;
+@header-before:              8;

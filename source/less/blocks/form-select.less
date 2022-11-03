@@ -1,0 +1,168 @@
+.form-select {
+  width: 100%;
+
+  position: relative;
+}
+
+.form-select__group {
+  margin: 0;
+}
+
+.form-select label {
+  width: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+.form-select button,
+.form-select label {
+  position: relative;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: left;
+  padding: 10px 50px 10px 0;
+  color: @color-grey;
+
+  margin-top: -9px;
+  margin-bottom: 12px;
+
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid @color-grey;
+
+  transition: color 0.3s ease, background 0.4s ease, padding 0.4s ease;
+
+  @media (max-width: @vp-767) {
+    padding: 6px 35px 6px 0;
+    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 2px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-image: url("../img/decorative/select-triangle.svg");
+    width: 16px;
+    height: 9px;
+    right: 4px;
+    top: 58%;
+    transform: translateY(-50%);
+
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+.form-select__list {
+  .list-reset();
+
+  line-height: 19px;
+
+  color: @color-grey;
+  background-color: @color-white;
+  box-shadow: 5px 5px 15px currentColor;
+
+  position: absolute;
+  top: 45px;
+  left: 0;
+
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+  z-index: 5;
+
+  transition: max-height 0.3s ease-in-out;
+
+  // Скрываем список элементов
+  max-height: 0;
+  overflow: hidden;
+}
+
+.form-select__item button {
+  width: 100%;
+  padding: 6px;
+  border-bottom: none;
+  margin: 0;
+
+  cursor: pointer;
+  transition: color 0.3s ease, background 0.3s ease, padding 0.4s linear;
+
+  &::after {
+    display: none;
+  }
+
+  @media (max-width: @vp-767) {
+    padding: 6px 25px 6px 10px;
+  }
+
+  // Эффекты при наведении в десктопной версии
+  @media (min-width: 1200px) {
+    &:hover,
+    &:focus {
+      background-color: @color-crusta;
+      color: @color-black;
+    }
+
+    &:active {
+      background-color: darken(@color-crusta, 20%);
+      color: @color-grey;
+    }
+  }
+
+  &:active {
+    background-color: @color-crusta;
+    transition-duration: 0s;
+  }
+}
+
+/* При добавлении класса */
+
+.form-select.is-show button::after,
+.form-select.is-show label::after {
+  transform: rotate(180deg) translateY(50%);
+}
+
+.form-select label {
+  // Эффекты при наведении в десктопной версии
+  @media (min-width: 1200px) {
+    &:hover,
+    &:focus {
+      border-radius: 10px;
+      color: @color-black;
+      padding: 10px 50px 10px 10px;
+      background: @black-to-darkOrange;
+    }
+
+    &:active {
+      background-color: transparent;
+      color: @color-grey;
+    }
+  }
+
+  &:active {
+    background-color: transparent;
+    color: @color-grey;
+  }
+}
+
+.form-select button {
+  @media (min-width: 1200px) {
+    &:hover,
+    &:focus {
+      color: @color-crusta;
+      background: @black-to-darkOrange;
+      padding: 6px 6px 6px 15px;
+    }
+
+    &:active {
+      background-color: transparent;
+      color: @color-grey;
+    }
+  }
+
+  &:active {
+    background-color: transparent;
+    color: @color-grey;
+  }
+}

@@ -1,0 +1,59 @@
+.breadcrumbs {
+  margin-bottom: 48px;
+
+  @media (max-width: @vp-767) {
+    margin-bottom: 30px;
+  }
+}
+
+.breadcrumbs__list {
+  .list-reset();
+
+  display: flex;
+}
+
+.breadcrumbs__item {
+  &:not(:last-child)::after {
+    content: "\2044";
+    display: inline-block;
+    position: relative;
+    padding: 0 10px;
+    color: @color-grey;
+    transform: rotate(-13deg) translate(-3px, -1px);
+  }
+}
+
+.breadcrumbs__item a {
+  font-size: 18px;
+  line-height: 21px;
+  color: @color-grey;
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+
+  // Эффекты при наведении в десктопной версии
+  @media (min-width: 1200px) {
+    &:hover,
+    &:focus {
+      color: @color-black;
+    }
+
+    &:active {
+      color: @color-crusta;
+    }
+  }
+
+  @media (max-width: @vp-767) {
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  &:active {
+    color: @color-crusta;
+  }
+}
+
+.breadcrumbs__item.is-current a {
+  color: @color-black;
+  cursor: default;
+}

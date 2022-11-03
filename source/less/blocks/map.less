@@ -1,0 +1,16 @@
+.map {
+  width: 100%;
+  max-width: 555px;
+  height: 700px;
+
+  align-self: start;
+  grid-row: 1;
+  grid-column: 2/-1;
+  z-index: @map;
+
+  @media (max-width: @vp-767) {
+    width: 100%;
+    max-width: none;
+    height: 200px;
+  }
+}

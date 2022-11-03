@@ -1,0 +1,108 @@
+.site-nav {
+  display: flex;
+  column-gap: 160px;
+
+  @media (max-width: @vp-767) {
+    position: fixed;
+    column-gap: 0;
+    flex-direction: column;
+    background: @green-to-purple;
+
+    width: 100%;
+
+    overflow: auto;
+    height: 100%;
+
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: @site-nav-mobile;
+
+    transition: top 0.4s ease-in-out, padding 0.4s ease-in-out;
+  }
+}
+
+.site-nav.is-open {
+  @media (max-width: @vp-767) {
+    top: 0;
+    padding: 80px 0 25px;
+  }
+}
+
+.site-nav__list {
+  .list-reset();
+
+  width: 50%;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 31px;
+
+  padding-right: 10px;
+
+  &--right {
+    justify-content: flex-end;
+
+    padding-left: 10px;
+    padding-right: 0;
+  }
+
+  @media (max-width: @vp-767) {
+    width: 100%;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+}
+
+.site-nav__item {
+  &--profile {
+    display: none;
+  }
+
+  @media (max-width: @vp-767) {
+    width: 100%;
+    text-align: center;
+
+    &--profile {
+      display: block;
+    }
+  }
+}
+
+.site-nav__item a {
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 700;
+
+  color: @color-grey;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: color 0.2s ease;
+
+  @media (max-width: @vp-767) {
+    display: block;
+    padding: 10px;
+    letter-spacing: 1px;
+    color: @color-yellow;
+  }
+
+  // Эффекты при наведении в десктопной версии
+  @media (min-width: 1110px) {
+    &:hover,
+    &:focus {
+      color: @color-black;
+      background-color: transparent;
+    }
+
+    &:active {
+      color: @color-crusta;
+    }
+  }
+
+  &:active {
+    color: @color-crusta;
+  }
+}

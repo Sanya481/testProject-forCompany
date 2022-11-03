@@ -1,0 +1,88 @@
+.burger {
+  display: none;
+
+  @media (max-width: @vp-767) {
+    display: inline-block;
+    position: relative;
+    padding: 5px 0;
+
+    height: 30px;
+    width: 28px;
+
+    vertical-align: middle;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    z-index: @burger;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      background-color: @color-black;
+      width: 100%;
+    }
+
+    &::before {
+      top: 5px;
+      right: 0;
+      transition: width 0.3s ease-in-out, right 0.3s ease-in-out;
+    }
+
+    &::after {
+      bottom: 5px;
+      left: 0;
+      transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    }
+  }
+}
+
+.burger__menu {
+  display: block;
+  position: relative;
+  width: 28px;
+  height: 2px;
+  background-color: @color-black;
+  margin: 0 auto;
+  z-index: 1;
+  // Почему то стрелки мешают клику!
+  pointer-events: none;
+
+  transition: transform 0.3s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: @color-black;
+    left: 0;
+    transition: transform 0.3s;
+  }
+}
+
+.burger.is-open::after {
+  width: 0%;
+  left: 0;
+  transition: all 0.3s;
+  background-color: @color-red;
+}
+
+.burger.is-open::before {
+  width: 0%;
+  right: 0;
+  transition: all 0.3s;
+  background-color: @color-red;
+}
+
+.burger.is-open .burger__menu,
+.burger.is-open .burger__menu::before {
+  transform: rotate(45deg);
+  transition: 0.3s transform 0.3s;
+  background-color: @color-yellow;
+}
+
+.burger.is-open .burger__menu::before {
+  transform: rotate(-90deg);
+}
