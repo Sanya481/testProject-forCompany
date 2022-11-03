@@ -47,7 +47,7 @@
       <a href="#" class="header__logo logo">
         <span class="visually-hidden">Логотип сайта</span>
         <svg width="160" height="50">
-          <use xlink:href="img/sprite/sprite.svg#logo">
+          <use xlink:href="img/sprite/sprite.svg#logo"></use>
         </svg>
       </a>
 
@@ -114,8 +114,11 @@
 
 
   <main>
+    <h1 class="visually-hidden">Корзина сайта</h1>
+
     <!-- Хлебные крошки -->
     <section class="breadcrumbs">
+      <h2 class="visually-hidden">Хлебные крошки сайта</h2>
       <div class="breadcrumbs__container container">
 
         <ul class="breadcrumbs__list">
@@ -136,7 +139,7 @@
 
         <!-- Главная форма на странице -->
         <form class="basket__form basket-form" action="#" method="post" enctype="multipart/form-data" data-form-basket>
-          <h1>Корзина</h1>
+          <h2>Корзина</h2>
 
           <!-- Авторизация -->
           <div class="basket__authorization authorization-link">
@@ -152,7 +155,7 @@
           </p>
 
           <!-- Карта реализованная с помощью Leaflet -->
-          <div class="map" width="555" height="700" data-map tabindex="-1"></div>
+          <div class="map" data-map></div>
 
           <!-- Форма ввода для Имени/Телефона -->
           <div class="basket-form__block">
@@ -181,8 +184,7 @@
             <div class="basket-form__select form-select" data-form-select>
 
               <p class="form-select__group">
-                <input class="visually-hidden" type="text" name="package-type" value="" data-select-input
-                  required></input>
+                <input class="visually-hidden" type="text" name="package-type" value="" data-select-input required>
                 <label data-select-package-btn>Тип упаковки</label>
               </p>
 
