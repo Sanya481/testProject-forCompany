@@ -31,6 +31,8 @@ if (selectedQuantity) {
   selectedQuantity.textContent = totalNumber;
 }
 
+
+// !!!!! Добавить проверку если отсутствует товар
 /**
  * Получение количества товара при удалении/добавлении товара, увеличении/уменьшении кол-ва товара
  */
@@ -38,6 +40,7 @@ const changeQuantityProduct = () => {
   quantityProducts.forEach((quantity) => {
     totalNumber = totalNumber + Number(quantity.value);
     selectedQuantity.textContent = totalNumber;
+
   })
 }
 
@@ -81,6 +84,7 @@ if (products) {
 
       // Уменьшаем на 1 единицу общее кол-во товара
       selectedQuantity.textContent--;
+      totalNumber--;
 
       // Если кол-во товара меньше 1 - кнопка минус блокируется...
       if (productQuantity <= 2) {
@@ -97,6 +101,9 @@ if (products) {
       // ...иначе минус разблокируется
       currentBtnPlus.disabled = false;
       currentProductQuantity.value--;
+
+      console.log("selectedQuantity.textContent", selectedQuantity.textContent, "totalNumber", totalNumber);
+
     }
 
     // Если клик был по кнопке плюс то находим ...
@@ -118,6 +125,7 @@ if (products) {
 
       // Увеличиваем на 1 единицу общее кол-во товара
       selectedQuantity.textContent++;
+      totalNumber++;
 
       // Если кол-во товара больше max (из атрибутов) - кнопка плюс блокируется...
       if (maxQuantityProduct <= productQuantity) {
@@ -126,7 +134,10 @@ if (products) {
       // ...иначе кнопка плюс разблокируется...
       currentProductQuantity.value++;
       currentBtnMinus.disabled = false;
+
+      console.log("selectedQuantity.textContent", selectedQuantity.textContent, "totalNumber", totalNumber);
     }
+
   });
 
   // Проверка ввода юзером кол-ва товара вручную через input..
@@ -176,6 +187,9 @@ if (products) {
       // Ищем все продукты, считаем их кол-во и записываем в общее
       changeQuantityProduct();
 
+      console.log("selectedQuantity.textContent", selectedQuantity.textContent, "totalNumber", totalNumber);
+
+
     }
   });
 
@@ -186,16 +200,45 @@ if (products) {
     if (evt.target.matches('[data-delete-product]')) {
       // ...текущий продукт
       const currentProduct = evt.target.closest('[data-product]');
+
       // ..добавляем анимацию и удаляем его из DOM
       currentProduct.classList.add('remove-product')
-      setTimeout(() => currentProduct.remove(), PRODUCT_TIME_REMOVE);
+
+      // Не удаляются товары - зараза. Из разметки исчезают но остаются похоже
+      // console.log(currentProduct.querySelector('[data-product-quantity]').value);
+      // console.log("selectedQuantity.textContent", selectedQuantity.textContent, "totalNumber", totalNumber);
 
       // Обнуляем общее кол-во и считаем заново. p.s - работа в лоб
       selectedQuantity.textContent = 0;
       totalNumber = 0
 
-      // Ищем все продукты, считаем их кол-во и записываем в общее
       changeQuantityProduct();
+      // console.log("products", products);
+
+
+      // // Ищем все продукты, считаем их кол-во и записываем в общее
+      // quantityProducts.forEach((quantity) => {
+      //   // если товары есть то считаем
+      //   if (quantity) {
+      //     totalNumber = totalNumber - Number(quantity.value);
+      //     selectedQuantity.textContent = totalNumber;
+      //   }
+      //   // если нету то ставим 0
+
+      // })
+
+      // console.log(currentProduct.querySelector('[data-product-quantity]').value);
+      // console.log("selectedQuantity.textContent", selectedQuantity.textContent, "totalNumber", totalNumber);
+
+      setTimeout(() => currentProduct.remove(), PRODUCT_TIME_REMOVE);
+
+      // console.log("products", products);
     }
   });
 }
+
+
+// console.log(document.querySelector('[data-product-quantity]').value);
+// console.log("selectedQuantity.textContent", selectedQuantity.textContent, "totalNumber", totalNumber);
+
+// console.log("products", products );

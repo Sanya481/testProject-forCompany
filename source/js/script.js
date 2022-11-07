@@ -5,6 +5,8 @@ import './search-form.js';
 import './form-select.js';
 import './util.js';
 import './basket-form.js';
+import './modal-authorization.js';
+// import './btn-animation.js';
 import { onEventCalllback } from './phone-input-mask.js';
 
 const phoneInputs = document.querySelectorAll('[data-phone-pattern]');
