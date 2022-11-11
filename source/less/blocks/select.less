@@ -1,21 +1,21 @@
-.form-select {
+.select {
   width: 100%;
 
   position: relative;
 }
 
-.form-select__group {
+.select__group {
   margin: 0;
 }
 
-.form-select label {
+.select label {
   width: 100%;
   display: block;
   cursor: pointer;
 }
 
-.form-select button,
-.form-select label {
+.select button,
+.select label {
   position: relative;
 
   font-weight: 400;
@@ -55,7 +55,7 @@
   }
 }
 
-.form-select__list {
+.select__list {
   .list-reset();
 
   line-height: 19px;
@@ -79,7 +79,7 @@
   overflow: hidden;
 }
 
-.form-select__item button {
+.select__item button {
   width: 100%;
   padding: 6px;
   border-bottom: none;
@@ -118,12 +118,12 @@
 
 /* При добавлении класса */
 
-.form-select.is-show button::after,
-.form-select.is-show label::after {
+.select.is-show button::after,
+.select.is-show label::after {
   transform: rotate(180deg) translateY(50%);
 }
 
-.form-select label {
+.select label {
   // Эффекты при наведении в десктопной версии
   @media (min-width: 1200px) {
     &:hover,
@@ -146,13 +146,13 @@
   }
 }
 
-.form-select label:hover::after {
+.select label:hover::after {
   @media (min-width: 1200px) {
     right: 15px;
   }
 }
 
-.form-select button {
+.select button {
   @media (min-width: 1200px) {
     &:hover,
     &:focus {

@@ -9,6 +9,9 @@ import './modal-authorization.js';
 // import './btn-animation.js';
 import { onEventCalllback } from './phone-input-mask.js';
 
+import './favourites.js';
+
+
 const phoneInputs = document.querySelectorAll('[data-phone-pattern]');
 
 const mapBasket = document.querySelector('[data-map]');
@@ -22,16 +25,19 @@ if (phoneInputs) {
   }
 }
 
+if (mapBasket) {
 
-const map = L.map(mapBasket)
-  .setView({
-    lat: 55.755864,
-    lng: 37.617698,
-  }, 10);
+  const map = L.map(mapBasket)
+    .setView({
+      lat: 55.755864,
+      lng: 37.617698,
+    }, 10);
 
-L.tileLayer(
-  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-  {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  },
-).addTo(map);
+  L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    },
+  ).addTo(map);
+
+}

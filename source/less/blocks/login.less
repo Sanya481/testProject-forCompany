@@ -267,7 +267,7 @@
   cursor: pointer;
   z-index: @modal-login-btn-submit;
 
-  transition: border-radius 0.2s linear;
+  transition: border-radius 0.2s linear, box-shadow 0.2s linear;
 
   @media (max-width: @vp-767) {
     position: static;
@@ -314,6 +314,7 @@
   .login__submit:focus::before,
   .login__close-btn:focus {
     border-radius: 50px;
+    box-shadow: inset 0 5px 10px 0 rgb(0, 0, 0, 50%);
   }
 
   .login__submit:active {

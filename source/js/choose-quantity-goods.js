@@ -1,20 +1,19 @@
-// Списко с выбранными товарами
+// Список с выбранными товарами
 const productsList = document.querySelector('[data-product-list]');
 // Товары в списке выбранных
-const products = productsList.querySelectorAll('[data-product]');
+const products = document.querySelectorAll('[data-product]');
 // Цифра над иконкой корзины
 const selectedQuantity = document.querySelector('[data-quantity-goods]');
 // Количество каждого товара
 const quantityProducts = document.querySelectorAll('[data-product-quantity]');
 
-// Копирование шаблона и добавление на страницу
-// Находим фрагмент с содержимым темплейта
-const templateFragment = document.querySelector('#error-quantity-message').content;
-// В фрагменте находим нужный элемент
-const template = templateFragment.querySelector('[data-error-quantity-message]')
-// Клонируем элемент со всеми "внутренностями"
-const element = template.cloneNode(true);
-
+// // Копирование шаблона и добавление на страницу
+// // Находим фрагмент с содержимым темплейта
+// const templateFragment = document.querySelector('#error-quantity-message').content;
+// // В фрагменте находим нужный элемент
+// const template = templateFragment.querySelector('[data-error-quantity-message]')
+// // Клонируем элемент со всеми "внутренностями"
+// const element = template.cloneNode(true);
 
 /**
  * Время удаления товара
@@ -31,7 +30,6 @@ if (selectedQuantity) {
   selectedQuantity.textContent = totalNumber;
 }
 
-
 // !!!!! Добавить проверку если отсутствует товар
 /**
  * Получение количества товара при удалении/добавлении товара, увеличении/уменьшении кол-ва товара
@@ -40,12 +38,20 @@ const changeQuantityProduct = () => {
   quantityProducts.forEach((quantity) => {
     totalNumber = totalNumber + Number(quantity.value);
     selectedQuantity.textContent = totalNumber;
-
   })
 }
 
+
 // Проверяем присутствие элемента на странице, чтобы не сломать js код других модулей
-if (products) {
+if (productsList) {
+
+  // Копирование шаблона и добавление на страницу
+  // Находим фрагмент с содержимым темплейта
+  const templateFragment = document.querySelector('#error-quantity-message').content;
+  // В фрагменте находим нужный элемент
+  const template = templateFragment.querySelector('[data-error-quantity-message]')
+  // Клонируем элемент со всеми "внутренностями"
+  const element = template.cloneNode(true);
 
   // Если товары есть/появились - считаем их
   changeQuantityProduct();

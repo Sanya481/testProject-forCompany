@@ -7,7 +7,7 @@ const formBasket = document.querySelector('[data-form-basket]');
 /**
  * Все select на странице
  */
-const selects = document.querySelectorAll('[data-form-select]');
+const selects = document.querySelectorAll('[data-select]');
 /**
  * Высота выпадашки по умолчанию
  */
@@ -63,9 +63,9 @@ const onChangeSelectContent = (evt) => {
     // ...берем значение(текст) из элемента...
     const userSelectItem = evt.target;
     // Текущий блок с выбором упаковки
-    const select = evt.target.closest('[data-form-select]');
+    const select = evt.target.closest('[data-select]');
     // Текущая кнопка
-    const selectBtn = select.querySelector('[data-select-package-btn]');
+    const selectBtn = select.querySelector('[data-select-btn]');
     // Текущий список эл-тов для изменения высоты
     const selectList = select.querySelector('[data-select-list]');
     // Текущее скрытое поле ввода, чтобы форма могла взять значение от туда
@@ -126,7 +126,7 @@ const onSelectEscPress = (evt) => {
 const onOverlayClick = (evt) => {
   selects.forEach((select) => {
     // Текущая кнопка
-    const selectBtn = select.querySelector('[data-select-package-btn]');
+    const selectBtn = select.querySelector('[data-select-btn]');
     // Текущий список эл-тов для изменения высоты
     const selectList = select.querySelector('[data-select-list]');
 
@@ -154,17 +154,17 @@ if (formBasket) {
   // ...добавим обработчик клик и ...
   formBasket.addEventListener('click', (evt) => {
     // ...отловим клик по кнопке выбора упаковки...
-    if (evt.target.matches('[data-select-package-btn]')) {
+    if (evt.target.matches('[data-select-btn]')) {
       evt.stopPropagation();
 
       // Текущий блок с выбором упаковки
-      const currentSelect = evt.target.closest('[data-form-select]');
+      const currentSelect = evt.target.closest('[data-select]');
       // Текущий список эл-тов для изменения высоты
       const currentSelectList = currentSelect.querySelector('[data-select-list]');
 
       // Если текущий элемент не содержит класс - то остальные содержат - надо проверить и удалить
       if (!currentSelect.classList.contains('is-show')) {
-        const selects = document.querySelectorAll('[data-form-select]');
+        const selects = document.querySelectorAll('[data-select]');
 
         // Проходимся по всем и удаляем
         selects.forEach((select) => {
@@ -231,13 +231,13 @@ if (formBasket) {
       if (evt.keyCode === KEYCODE_SPACE || evt.key === 'Space') {
 
         // Текущий блок с выбором упаковки
-        const currentSelect = evt.target.closest('[data-form-select]');
+        const currentSelect = evt.target.closest('[data-select]');
         // Текущий список эл-тов для изменения высоты
         const currentSelectList = currentSelect.querySelector('[data-select-list]');
 
         // Если текущий элемент не содержит класс - то остальные содержат - надо проверить и удалить
         if (!currentSelect.classList.contains('is-show')) {
-          const selects = document.querySelectorAll('[data-form-select]');
+          const selects = document.querySelectorAll('[data-select]');
 
           // Проходимся по всем и удаляем
           selects.forEach((select) => {

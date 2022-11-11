@@ -32,4 +32,13 @@
     <path d="M17.6111 11C17.6111 12.3261 17.0726 13.5979 16.1141 14.5355C15.1556 15.4732 13.8556 16 12.5 16C11.1445 16 9.84444 15.4732 8.88593 14.5355C7.92741 13.5979 7.38892 12.3261 7.38892 11" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
 
+  <!-- Плюс-->
+  <symbol id="plus-icon" viewBox="0 0 16 16" fill="none">
+    <line y1="8" x2="16" y2="8" stroke="black" stroke-width="2"/>
+    <line x1="8" y1="16" x2="8" stroke="black" stroke-width="2"/>
+  </symbol>
+
+
+
+
 </svg>

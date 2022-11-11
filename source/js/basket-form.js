@@ -26,7 +26,11 @@ function serializeForm(formNode) {
   return data;
 }
 
-basketForm.addEventListener('submit', handleFormSubmit);
+if (basketForm) {
+  basketForm.addEventListener('submit', handleFormSubmit);
+}
+
+
 
 
 
