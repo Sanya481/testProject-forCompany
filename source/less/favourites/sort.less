@@ -1,0 +1,84 @@
+.sort {
+  margin-bottom: 50px;
+}
+
+.sort__wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  border: 1px solid @color-lilac-bush;
+  border-radius: 16px;
+  padding: 15px;
+}
+
+.sort__select.select {
+  max-width: 250px;
+}
+
+// Сделать вращающийся бордер!!!
+.sort__select.select label {
+  border: 2px solid #ae5e5e;
+  border-radius: 8px;
+  padding: 10px 50px 10px 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 18px;
+  color: @color-black;
+
+  transition: box-shadow 0.3s linear;
+
+  &::after {
+    right: 15px;
+    top: 50%;
+  }
+
+  // Эффекты при наведении в десктопной версии
+  @media (min-width: 1200px) {
+    &:hover,
+    &:focus {
+      background: transparent;
+    }
+  }
+}
+
+.sort__select.select .select__list {
+  line-height: 22px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px -10px @color-black;
+
+  top: 50px;
+}
+
+.sort__select.select button {
+  font-size: 16px;
+  line-height: 28px;
+  padding: 5px 14px;
+  color: @color-black;
+
+  // Эффекты при наведении в десктопной версии
+  @media (min-width: 1200px) {
+    &:hover,
+    &:focus {
+      background: transparent;
+    }
+  }
+}
+
+.sort__select.select.is-show label {
+  box-shadow: 0 15px 30px -11px @color-black;
+}
+
+.sort__wrapper button {
+  font-family: @font-family-base;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+  padding: 3px;
+
+  border: none;
+
+  background-color: transparent;
+  user-select: none;
+  cursor: pointer;
+}

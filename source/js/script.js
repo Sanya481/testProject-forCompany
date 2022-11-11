@@ -2,14 +2,16 @@ import './autoheight-textarea.js';
 import './choose-quantity-goods.js';
 import './burger.js';
 import './search-form.js';
-import './form-select.js';
+import './select.js';
 import './util.js';
 import './basket-form.js';
 import './modal-authorization.js';
-// import './btn-animation.js';
+import './rendering-goods.js';
+import './sort-goods.js';
+import './favourites.js';
+import './remove-goods.js';
 import { onEventCalllback } from './phone-input-mask.js';
 
-import './favourites.js';
 
 
 const phoneInputs = document.querySelectorAll('[data-phone-pattern]');

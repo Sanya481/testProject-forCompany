@@ -157,28 +157,23 @@
             <div class="sort__wrapper">
 
               <!-- Выпадашка -->
-              <div class="sort__select form-select" data-form-select>
-
-                <p class="form-select__group">
+              <div class="sort__select select" data-select>
+                <p class="select__group">
                   <input class="visually-hidden" type="text" name="package-type" value="" data-select-input required>
-                  <label data-select-package-btn>Тип упаковки</label>
+                  <label data-select-btn>Недавно добавленные</label>
                 </p>
 
-                <ul class="form-select__list" inert data-select-list>
-                  <li class="form-select__item">
-                    <button type="button" data-item-value="Без упаковки" disabled>Без упаковки</button>
+                <ul class="select__list" inert data-select-list>
+                  <li class="select__item">
+                    <button type="button" data-item-value="Сначала дешевле" disabled>Сначала дешевле</button>
                   </li>
-                  <li class="form-select__item">
-                    <button type="button" data-item-value="Стандартная" disabled>Стандартная</button>
-                  </li>
-                  <li class="form-select__item">
-                    <button type="button" data-item-value="Подарочная" disabled>Подарочная</button>
+                  <li class="select__item">
+                    <button type="button" data-item-value="Сначала дороже" disabled>Сначала дороже</button>
                   </li>
                 </ul>
-
               </div>
 
-              <button type="button">Удалить всё</button>
+              <button type="button" data-remove-all>Удалить всё</button>
 
             </div>
           </div>

@@ -35,6 +35,73 @@ export const isEscapeKey = (evt) => evt.key === 'Escape';
 // };
 
 
+// Выдуманные товары
+const goods = [
+  {
+    title: "Товар 1",
+    description: "Описание товара, которое может быть очень-очень длинным",
+    url: "product.jpg",
+    price: 5590
+  },
+  {
+    title: "Товар 2",
+    description: "Описание товара, которое может быть очень-очень длинным",
+    url: "product.jpg",
+    price: 1000
+  },
+  {
+    title: "Товар 3",
+    description: "Описание товара, которое может быть очень-очень длинным",
+    url: "product.jpg",
+    price: 20000
+  },
+  {
+    title: "Товар 4",
+    description: "Описание товара, которое может быть очень-очень длинным",
+    url: "product.jpg",
+    price: 1350
+  },
+  {
+    title: "Товар 5",
+    description: "Описание товара, которое может быть очень-очень длинным",
+    url: "product.jpg",
+    price: 4000
+  },
+  {
+    title: "Товар 6",
+    description: "Описание товара, которое может быть очень-очень длинным",
+    url: "product.jpg",
+    price: 1560
+  },
+  {
+    title: "Товар 7",
+    description: "Описание товара, которое может быть очень-очень длинным",
+    url: "product.jpg",
+    price: 10000
+  },
+  {
+    title: "Товар 8",
+    description: "Описание товара, которое может быть очень-очень длинным",
+    url: "product.jpg",
+    price: 9800
+  },
+  {
+    title: "Товар 9",
+    description: "Описание товара, которое может быть очень-очень длинным",
+    url: "product.jpg",
+    price: 800
+  },
+  {
+    title: "Товар 10",
+    description: "Описание товара, которое может быть очень-очень длинным",
+    url: "product.jpg",
+    price: 10400
+  }
+]
+
+export {goods};
+
+
 
 
 

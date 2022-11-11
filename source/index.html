@@ -180,27 +180,23 @@
           </p>
 
           <!-- Выпадашка -->
-          <div class="basket-form__group">
-            <div class="basket-form__select select" data-select>
+          <div class="basket-form__group select" data-select>
+            <p class="select__group">
+              <input class="visually-hidden" type="text" name="package-type" value="" data-select-input required>
+              <label data-select-btn>Тип упаковки</label>
+            </p>
 
-              <p class="select__group">
-                <input class="visually-hidden" type="text" name="package-type" value="" data-select-input required>
-                <label data-select-btn>Тип упаковки</label>
-              </p>
-
-              <ul class="select__list" inert data-select-list>
-                <li class="select__item">
-                  <button type="button" data-item-value="Без упаковки" disabled>Без упаковки</button>
-                </li>
-                <li class="select__item">
-                  <button type="button" data-item-value="Стандартная" disabled>Стандартная</button>
-                </li>
-                <li class="select__item">
-                  <button type="button" data-item-value="Подарочная" disabled>Подарочная</button>
-                </li>
-              </ul>
-
-            </div>
+            <ul class="select__list" inert data-select-list>
+              <li class="select__item">
+                <button type="button" data-item-value="Без упаковки" disabled>Без упаковки</button>
+              </li>
+              <li class="select__item">
+                <button type="button" data-item-value="Стандартная" disabled>Стандартная</button>
+              </li>
+              <li class="select__item">
+                <button type="button" data-item-value="Подарочная" disabled>Подарочная</button>
+              </li>
+            </ul>
           </div>
 
           <!-- Комменты -->
