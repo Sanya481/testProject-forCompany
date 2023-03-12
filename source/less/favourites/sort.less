@@ -81,4 +81,21 @@
   background-color: transparent;
   user-select: none;
   cursor: pointer;
+
+  // Эффекты при наведении в десктопной версии
+  @media (min-width: 1200px) {
+    &:hover,
+    &:focus {
+      color: green;
+    }
+
+    &:active {
+      color: @color-red;
+    }
+  }
+
+  &:active {
+    color: @color-red;
+  }
+
 }
