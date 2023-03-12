@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="files/leaflet/leaflet.css"> -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>Тестовое задание на HTML-верстальщика в компанию Пять углов</title>
+</head>
+
+<body class="page-body">
+
+  <header class="header" data-header>
+    <div class="header__container container">
+
+      <div class="header__mobile-nav mobile-nav" data-mobile-nav>
+        <!-- Бургер в мобилке -->
+        <button class="mobile-nav__burger burger" type="button" data-burger aria-label="Открыть/закрыть меню">
+          <span class="burger__menu"></span>
+        </button>
+
+        <!-- Поиск в мобилке -->
+        <button class="mobile-nav__search-site" type="button" data-search-btn-open>
+          <svg width="24" height="24">
+            <use xlink:href="img/sprite/sprite.svg#search-icon"></use>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Форма поиска - комп/мобилка -->
+      <form class="header__search search-form" action="#" method="post" data-search-form>
+        <!-- Кнопка закрытия поиска в мобилке -->
+        <button class="search-form__close" type="button" aria-label="Закрыть окно поиска"
+          data-search-btn-close></button>
+
+        <p class="search-form__group">
+          <label class="search-form__label">
+            <input type="search" name="site-search" placeholder="Поиск">
+          </label>
+        </p>
+
+        <button class="search-form__find" type="submit">Найти</button>
+      </form>
+
+      <a href="#" class="header__logo logo">
+        <span class="visually-hidden">Логотип сайта</span>
+        <svg width="160" height="50">
+          <use xlink:href="img/sprite/sprite.svg#logo"></use>
+        </svg>
+      </a>
+
+      <!-- Иконки навигации пользователя - профиль/избранное/корзина -->
+      <nav class="header__user-nav user-nav">
+        <ul class="user-nav__list">
+          <li class="user-nav__item user-nav__item--profile">
+            <a href="#" class="user-nav__link user-nav__link--profile" aria-label="Профиль пользователя">
+              <svg width="24" height="27">
+                <use xlink:href="img/sprite/sprite.svg#profile"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="user-nav__item">
+            <a href="#" class="user-nav__link user-nav__link--favourites" aria-label="Избранные товары">
+              <svg width="30" height="27">
+                <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="user-nav__item user-nav__item--cart">
+            <a href="index.html" class="user-nav__link user-nav__link--cart" aria-label="Корзина">
+              <svg width="25" height="27">
+                <use xlink:href="img/sprite/sprite.svg#cart"></use>
+              </svg>
+            </a>
+            <span data-quantity-goods></span>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Навигация по сайту -->
+      <nav class="header__site-nav site-nav" data-site-nav>
+        <ul class="site-nav__list" data-site-nav-left>
+          <li class="site-nav__item site-nav__item--profile">
+            <a href="#">Профиль</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="#">Страница&nbsp;1</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="#">Страница&nbsp;2</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="#">Страница&nbsp;3</a>
+          </li>
+        </ul>
+
+        <ul class="site-nav__list site-nav__list--right" data-site-nav-right>
+          <li class="site-nav__item">
+            <a href="#">Страница&nbsp;4</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="#">Страница&nbsp;5</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="#">Страница&nbsp;6</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+    <h1 class="visually-hidden">Избранные товары</h1>
+
+    <!-- Хлебные крошки -->
+    <section class="breadcrumbs">
+      <h2 class="visually-hidden">Хлебные крошки сайта</h2>
+      <div class="breadcrumbs__container container">
+
+        <ul class="breadcrumbs__list">
+          <li class="breadcrumbs__item">
+            <a href="#">Главная</a>
+          </li>
+          <li class="breadcrumbs__item is-current">
+            <a href="#">Избранное</a>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- Рекламка -->
+    <article class="sale">
+      <div class="container">
+        <a href="#" class="sale__link">
+          <div class="sale__block">
+            <h2>Просто понедельник</h2>
+            <p>Самый выгодный понедельник в году&#42;</p>
+            <span>&#42;Предложение действительно до конца дня</span>
+          </div>
+        </a>
+      </div>
+    </article>
+
+    <section class="favourites">
+      <div class="container">
+
+        <h2>Избранные товары</h2>
+
+        <!-- Сортировка товаров -->
+        <section class="sort">
+          <div class="container">
+            <div class="sort__wrapper">
+
+              <!-- Выпадашка -->
+              <div class="sort__select select" data-select>
+                <p class="select__group">
+                  <input class="visually-hidden" type="text" name="package-type" value="" data-select-input required>
+                  <label data-select-btn>Недавно добавленные</label>
+                </p>
+
+                <ul class="select__list" inert data-select-list>
+                  <li class="select__item">
+                    <button type="button" data-item-value="Сначала дешевле" disabled>Сначала дешевле</button>
+                  </li>
+                  <li class="select__item">
+                    <button type="button" data-item-value="Сначала дороже" disabled>Сначала дороже</button>
+                  </li>
+                </ul>
+              </div>
+
+              <button type="button" data-remove-all>Удалить всё</button>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Сюда товары -->
+        <ul class="favourites__list" data-good-list>
+
+        </ul>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Шаблон карточки товара -->
+  <template id="good">
+    <li class="favourites__item good" data-good>
+      <!-- Сюда название -->
+      <h3 data-good-title></h3>
+      <!-- Сюда описание -->
+      <p data-good-description></p>
+
+      <div class="good__image">
+        <!-- Сюда фоточку. Лежит в img/products/фоточка.jpg -->
+        <img src="" width="150" height="150" alt="Товар, который вам точно понравится" data-good-image>
+      </div>
+
+      <!-- Параграф обернул в div, чтобы ни вешать класс на p -->
+      <div class="good__price">
+        <!-- Сюда цену -->
+        <!-- Разбил по отдельности потому-что textContent у параграфа, span считает за текст и заменяет на цену - остается одна цена -->
+        <p data-good-price></p>
+        <span>руб.</span>
+      </div>
+
+      <button class="good__basket-btn" type="button" data-good-to-basket>
+        <span>В корзину</span></button>
+      <button class="good__delete" type="button" aria-label="Удалить из избранного"
+        data-good-delete="Удалить из избранного">
+        <svg width="16" height="16">
+          <use xlink:href="img/sprite/sprite.svg#plus-icon"></use>
+        </svg>
+      </button>
+    </li>
+  </template>
+
+  <script src="js/script.js" type="module"></script>
+  <!-- <script src="files/leaflet/leaflet.js"></script> -->
+
+</body>
+
+</html>

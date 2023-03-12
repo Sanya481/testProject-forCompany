@@ -1,0 +1,203 @@
+.good {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+
+  padding: 30px 15px;
+  max-width: 300px;
+  border-radius: 10px;
+
+  box-shadow: 0 0 26px 10px rgba(34, 60, 80, 0.2);
+
+  position: relative;
+}
+
+.good h3 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+
+  margin: 0;
+}
+
+.good p {
+  line-height: 19px;
+  color: @color-grey;
+  text-align: center;
+
+  margin: 0;
+}
+
+.good__image {
+  order: -1;
+}
+
+.good__price {
+  display: flex;
+  align-items: center;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+
+  color: @color-black;
+
+  margin: 0;
+}
+
+.good__price p {
+  color: @color-black;
+}
+
+.good__price span {
+  margin-left: 3px;
+}
+
+.good__basket-btn {
+  font-family: @font-family-base;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+
+  width: 100%;
+  padding: 12px;
+  border-radius: 15px;
+  border: 2px solid @color-crusta;
+
+  color: @color-crusta;
+
+  background-color: transparent;
+  user-select: none;
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: @color-crusta;
+    width: 55%;
+    height: 75%;
+    transform: translate(-55%, -25%) rotate(45deg);
+
+    transition: transform 0.3s linear, width 0.3s linear, height 0.3s linear,;
+  }
+}
+
+.good__basket-btn span {
+  position: relative;
+  z-index: 1;
+
+  transition: color 0.3s linear;
+}
+
+.good__basket-btn:hover::after {
+  transform: translate(-5%, -25%) rotate(45deg);
+  width: 150%;
+  height: 510%;
+}
+
+.good__basket-btn:hover span {
+  color: @color-black;
+}
+
+.good__delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0 10px;
+
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  transition: background-color 0.2s linear;
+
+
+  &::after,
+  &::before {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    // Прячем элемент
+    opacity: 0;
+    // Чтобы не реагировал на наведение
+    visibility: hidden;
+
+    transition: opacity 0.6s ease, top 0.3s ease;
+  }
+
+  &::after {
+    font-family: @font-family-base;
+    content: attr(data-good-delete);
+    // Для анимации появления
+    top: 0;
+
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    color: @color-white;
+    width: 155px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+
+  &::before {
+    content: "";
+    border-top: 10px solid rgba(0, 0, 0, 0.85);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    // Для анимации появления
+    top: 0;
+  }
+
+  // Эффекты при наведении в десктопной версии
+  @media (min-width: 1110px) {
+    &:hover,
+    &:focus {
+      background-color: @color-crusta;
+    }
+  }
+}
+
+.good__delete svg {
+  width: 16px;
+  height: 16px;
+
+  transform: rotate(45deg);
+  pointer-events: none;
+
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 1110px) {
+  .good__delete:hover svg,
+  .good__delete:focus svg {
+    transform: rotate(225deg);
+  }
+
+  .good__delete:hover::after,
+  .good__delete:focus::after {
+    opacity: 1;
+    visibility: visible;
+    top: -40px;
+  }
+
+  .good__delete:hover::before,
+  .good__delete:focus::before {
+    opacity: 1;
+    visibility: visible;
+    top: -14px;
+  }
+}

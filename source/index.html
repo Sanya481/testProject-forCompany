@@ -62,7 +62,7 @@
             </a>
           </li>
           <li class="user-nav__item">
-            <a href="#" class="user-nav__link user-nav__link--favourites" aria-label="Избранные товары">
+            <a href="favourites.html" class="user-nav__link user-nav__link--favourites" aria-label="Избранные товары">
               <svg width="30" height="27">
                 <use xlink:href="img/sprite/sprite.svg#favourites"></use>
               </svg>
@@ -144,7 +144,7 @@
           <!-- Авторизация -->
           <div class="basket__authorization authorization-link">
             <span>Есть аккаунт?</span>
-            <a href="#">Войти</a>
+            <button type="button" data-modal-login-open>Войти</button>
           </div>
 
           <!-- Форма ввода для адреса -->
@@ -180,27 +180,23 @@
           </p>
 
           <!-- Выпадашка -->
-          <div class="basket-form__group">
-            <div class="basket-form__select form-select" data-form-select>
+          <div class="basket-form__group select" data-select>
+            <p class="select__group">
+              <input class="visually-hidden" type="text" name="package-type" value="" data-select-input required>
+              <label data-select-btn>Тип упаковки</label>
+            </p>
 
-              <p class="form-select__group">
-                <input class="visually-hidden" type="text" name="package-type" value="" data-select-input required>
-                <label data-select-package-btn>Тип упаковки</label>
-              </p>
-
-              <ul class="form-select__list" inert data-select-list>
-                <li class="form-select__item">
-                  <button type="button" data-item-value="Без упаковки" disabled>Без упаковки</button>
-                </li>
-                <li class="form-select__item">
-                  <button type="button" data-item-value="Стандартная" disabled>Стандартная</button>
-                </li>
-                <li class="form-select__item">
-                  <button type="button" data-item-value="Подарочная" disabled>Подарочная</button>
-                </li>
-              </ul>
-
-            </div>
+            <ul class="select__list" inert data-select-list>
+              <li class="select__item">
+                <button type="button" data-item-value="Без упаковки" disabled>Без упаковки</button>
+              </li>
+              <li class="select__item">
+                <button type="button" data-item-value="Стандартная" disabled>Стандартная</button>
+              </li>
+              <li class="select__item">
+                <button type="button" data-item-value="Подарочная" disabled>Подарочная</button>
+              </li>
+            </ul>
           </div>
 
           <!-- Комменты -->
@@ -332,6 +328,75 @@
       </div>
     </section>
   </main>
+
+  <!-- Модалка авторизации -->
+  <div class="modal-authorization login" data-modal-login>
+    <h2>C&nbsp;возвращением</h2>
+    <span>Мы&nbsp;скучали по&nbsp;вам</span>
+
+    <div class="login__wrapper">
+
+      <form action="https://echo.htmlacademy.ru" method="post" data-form-login>
+
+        <div class="login__form-wrapper">
+          <p class="login__group login__group--mail">
+            <label>
+              <input type="email" name="mail" data-login-mail placeholder="Введите свой email" required>
+            </label>
+          </p>
+          <p class="login__group login__group--password">
+            <label>
+              <input type="password" name="password" placeholder="Пароль пжлст" data-password-input required>
+            </label>
+            <button class="login__password" type="button" aria-label="Показать/скрыть пароль"
+              data-password-view></button>
+          </p>
+        </div>
+
+        <a href="#">Упс...Кажется я забыл пароль!</a>
+
+        <button class="login__submit" type="submit">Войти</button>
+      </form>
+
+    </div>
+
+    <button class="login__close-btn" data-close-login-modal aria-label="Закрыть окно авторизации"></button>
+  </div>
+
+
+  <!-- Модалка - "забыли пароль" -->
+  <!-- <div class="modal-authorization login" data-modal-login>
+    <h2>C&nbsp;возвращением</h2>
+    <span>Мы&nbsp;скучали по&nbsp;вам</span>
+
+    <div class="login__wrapper">
+
+      <form action="#" method="post" data-form-login>
+
+        <div class="login__form-wrapper">
+          <p class="login__group login__group--mail">
+            <label>
+              <input type="email" name="mail" data-login-mail placeholder="Введите свой email" required>
+            </label>
+          </p>
+          <p class="login__group login__group--password">
+            <label>
+              <input type="password" name="password" placeholder="Пароль пжлст" data-password-input required>
+            </label>
+            <button class="login__password" type="button" aria-label="Показать/скрыть пароль" data-password-view></button>
+          </p>
+        </div>
+
+        <a href="#">Упс...Кажется я забыл пароль!</a>
+
+        <button class="login__submit" type="submit" data-btn-submit>Войти</button>
+      </form>
+
+    </div>
+
+    <button class="login__close-btn" data-close-login-modal
+      aria-label="Закрыть окно авторизации"></button>
+  </div> -->
 
   <!-- Смс о превышении доступного кол-ва товара -->
   <template id="error-quantity-message">
